@@ -11,7 +11,7 @@ function Projects() {
       category: 'school',
       description: 'A full-stack web SPA that launches games from a library. REST API and SQLite to manage user data, leaderboards, high scores.',
       tech: ['React', 'Node.js', 'SQLite', 'Express', 'JS'],
-      image: '/images/uabgames.png',
+      image: '${process.env.PUBLIC_URL}/images/uabgames.png',
       github: 'https://github.com/cblalock/CS499GameLauncher',
     },
     {
@@ -20,7 +20,7 @@ function Projects() {
       category: 'school',
       description: 'Inspired by Portal 2, a fun and challenging first person puzzle game where you try to escape the factory by completing levels.',
       tech: ['Unreal Engine 5', 'Gitlab'],
-      image: '/images/gearshiftpic.png',
+      image: '${process.env.PUBLIC_URL}/images/gearshiftpic.png',
       github: 'https://github.com/cblalock/Gearshift',
     },
     {
@@ -29,7 +29,7 @@ function Projects() {
       category: 'school',
       description: 'A drone project to simulate real events where a drone or camera can be used for security/check in purposes. Real time video feed, facial recognition, identity verification, interrupt driven behavior.',
       tech: ['Java', 'OpenCV', 'TelloSDK'],
-      image: '/images/tellodrone.png',
+      image: '${process.env.PUBLIC_URL}/images/tellodrone.png',
       github: 'https://github.com/cblalock/DroneProject',
     },
     /*{
