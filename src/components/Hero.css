@@ -1,0 +1,292 @@
+.hero {
+  position: relative;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.4;
+  animation: float 20s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--color-accent), transparent);
+  top: -200px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--color-accent-2), transparent);
+  top: 50%;
+  right: -150px;
+  animation-delay: 7s;
+}
+
+.orb-3 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, var(--color-accent-3), transparent);
+  bottom: -100px;
+  left: 30%;
+  animation-delay: 14s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(50px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-50px, 50px) scale(0.9);
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 900px;
+}
+
+.hero-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-sm);
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(4rem, 12vw, 8rem);
+  font-weight: 900;
+  line-height: 0.9;
+  margin-bottom: var(--spacing-md);
+}
+
+.hero-title .line {
+  display: block;
+  animation: slideInLeft 0.8s ease forwards;
+  opacity: 0;
+}
+
+.hero-title .line:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.hero-title .line:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.hero-title .line:nth-child(3) {
+  animation-delay: 0.7s;
+}
+
+.hero-title .accent {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: var(--color-muted);
+  margin-bottom: 4rem; /* FIXED: More space below subtitle */
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.9s;
+  opacity: 0;
+  line-height: 1.8;
+  min-height: 3.6em; /* Prevents layout shift, holds space for 2 lines */
+}
+
+.rotating-text {
+  display: inline-block;
+  position: relative;
+  height: 1.8em; /* FIXED: Increased height to fit text properly */
+  width: 8em; /* FIXED: Added width to prevent text cutoff */
+  overflow: hidden;
+  vertical-align: bottom;
+  text-align: left; /* FIXED: Align text to left for consistent positioning */
+}
+
+.text-rotate {
+  display: block;
+  position: absolute; /* FIXED: Made absolute for proper stacking */
+  left: 0;
+  top: 0;
+  width: 100%;
+  animation: rotateText 9s infinite;
+  color: var(--color-accent);
+  font-weight: 600;
+  opacity: 0; /* FIXED: Start hidden */
+}
+
+.text-rotate:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.text-rotate:nth-child(2) {
+  animation-delay: 3s;
+}
+
+.text-rotate:nth-child(3) {
+  animation-delay: 6s;
+}
+
+@keyframes rotateText {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  5%, 30% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  35%, 100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.hero-cta {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 1.1s;
+  opacity: 0;
+  margin-bottom: 4rem; /* FIXED: Space between buttons and scroll indicator */
+}
+
+.btn {
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  color: #0a0a0a; /* FIXED: Changed to dark text for better contrast on green */
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-text);
+  border: 2px solid var(--color-accent);
+}
+
+.btn-secondary:hover {
+  background: var(--color-accent);
+  color: #0a0a0a; /* FIXED: Changed to dark text */
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+}
+
+.scroll-indicator {
+  position: relative; /* FIXED: Changed from absolute to relative for proper flow */
+  margin: 0 auto; /* FIXED: Center horizontally */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 1.3s;
+  opacity: 0;
+}
+
+.mouse {
+  width: 30px;
+  height: 50px;
+  border: 2px solid var(--color-muted);
+  border-radius: 20px;
+  position: relative;
+}
+
+.wheel {
+  width: 4px;
+  height: 10px;
+  background: var(--color-accent);
+  border-radius: 2px;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scroll 2s infinite;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+}
+
+.scroll-indicator p {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+  
+  .scroll-indicator {
+    bottom: var(--spacing-md);
+  }
+}
