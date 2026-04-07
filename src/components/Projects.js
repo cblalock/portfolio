@@ -7,6 +7,17 @@ function Projects() {
   const projects = [
     {
       id: 1,
+      title: 'TradeScan',
+      category: 'personal',
+      description: 'A Python-based market scanner that analyzes 30+ US equities across 5 timeframes using 9 technical strategies. Surfaces day trade and swing trade setups with auto-calculated entry, stop loss, and take profit levels. Includes a live dark-themed dashboard and optional Telegram alerts.',
+      tech: ['Python', 'Pandas', 'yfinance', 'ta', 'schedule', 'python telegram bot', 'HTML/CSS/JS'],
+      image: `${process.env.PUBLIC_URL}/images/tradescan.png`,
+      github: 'https://github.com/cblalock/tradescan',
+      live: '',
+      featured: false,
+    },
+    {
+      id: 2,
       title: 'Video Game Sales Analysis',
       category: 'personal',
       description: 'Analyzed 16,000+ video game sales records spanning 1980-2020 to uncover industry trends using Python data science libraries.',
@@ -17,7 +28,7 @@ function Projects() {
       featured: false,
     },
     {
-      id: 2,
+      id: 3,
       title: 'UAB Game Launcher',
       category: 'school',
       description: 'A full-stack web SPA that launches games from a library. REST API and SQLite to manage user data, leaderboards, high scores.',
@@ -26,7 +37,7 @@ function Projects() {
       github: 'https://github.com/cblalock/CS499GameLauncher',
     },
     {
-      id: 3,
+      id: 4,
       title: 'Gearshift',
       category: 'school',
       description: 'Inspired by Portal 2, a fun and challenging first person puzzle game where you try to escape the factory by completing levels.',
@@ -35,7 +46,7 @@ function Projects() {
       github: 'https://github.com/cblalock/Gearshift',
     },
     {
-      id: 4,
+      id: 5,
       title: 'Autonomous Security Drone',
       category: 'school',
       description: 'A drone project to simulate real events where a drone or camera can be used for security/check in purposes. Real time video feed, facial recognition, identity verification, interrupt driven behavior.',
