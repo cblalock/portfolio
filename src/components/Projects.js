@@ -7,12 +7,12 @@ function Projects() {
   const projects = [
     {
       id: 1,
-      title: 'TradeScan',
+      title: 'Ollama-Ansible Local LLM',
       category: 'personal',
-      description: 'A Python-based market scanner that analyzes 30+ US equities across 5 timeframes using 9 technical strategies. Surfaces day trade and swing trade setups with auto-calculated entry, stop loss, and take profit levels. Includes a live dark-themed dashboard and optional Telegram alerts.',
-      tech: ['Python', 'Pandas', 'yfinance', 'ta', 'schedule', 'python telegram bot', 'HTML/CSS/JS'],
-      image: `${process.env.PUBLIC_URL}/images/tradescan.png`,
-      github: 'https://github.com/cblalock/tradescan',
+      description: 'Ansible playbook that provisions a fully working private AI assistant from scratch with a single command. Built around a real-world scenario: a business that needs an internal AI tool but cannot send sensitive client data to third-party servers.',
+      tech: ['Ansible', 'Ollama', 'Docker', 'OpenWebUI', 'llama3.2:3b', 'Ubuntu/systemd'],
+      image: `${process.env.PUBLIC_URL}/images/localLLM.png`,
+      github: 'https://github.com/cblalock/ollama-ansible',
       live: '',
       featured: false,
     },
