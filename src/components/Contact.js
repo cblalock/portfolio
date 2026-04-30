@@ -47,7 +47,7 @@ function Contact() {
                 <div>
                   <div className="method-label">Email</div>
                   <a href="mailto:connor.blalock77@gmail.com" className="method-value">
-                    connor.blalock@yahoo.com
+                    connor.blalock77@gmail.com
                   </a>
                 </div>
               </div>
