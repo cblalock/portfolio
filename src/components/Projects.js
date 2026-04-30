@@ -10,7 +10,7 @@ function Projects() {
       title: 'Setup Scanner',
       category: 'personal',
       description: 'Setup Scanner scans NYSE and NASDAQ stocks using 15 technical indicators across 5 timeframes (5m, 15m, 1h, 4h, daily). Each setup includes a calculated entry, stop loss, two take-profit targets, and a risk/reward ratio. Pro users get continuous auto-scanning during market hours, full access to all indicators, timeframes, and stock tickers.',
-      tech: ['Ansible', 'Ollama', 'Docker', 'OpenWebUI', 'llama3.2:3b', 'Ubuntu/systemd'],
+      tech: ['Python/FastAPI', 'Supabase(PostgreSQL)','HTML/JS', 'Alpaca Markets', 'Railway'],
       image: `${process.env.PUBLIC_URL}/images/setupscanner.png`,
       github: '',
       live: 'https://www.setupscan.app',
