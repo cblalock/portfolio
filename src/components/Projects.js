@@ -7,6 +7,17 @@ function Projects() {
   const projects = [
     {
       id: 1,
+      title: 'Setup Scanner',
+      category: 'personal',
+      description: 'Setup Scanner scans NYSE and NASDAQ stocks using 15 technical indicators across 5 timeframes (5m, 15m, 1h, 4h, daily). Each setup includes a calculated entry, stop loss, two take-profit targets, and a risk/reward ratio. Pro users get continuous auto-scanning during market hours, full access to all indicators, timeframes, and stock tickers.',
+      tech: ['Ansible', 'Ollama', 'Docker', 'OpenWebUI', 'llama3.2:3b', 'Ubuntu/systemd'],
+      image: `${process.env.PUBLIC_URL}/images/setupscanner.png`,
+      github: '',
+      live: 'https://www.setupscan.app',
+      featured: false,
+    },
+    {
+      id: 2,
       title: 'Ollama-Ansible Local LLM',
       category: 'personal',
       description: 'Ansible playbook that provisions a fully working private AI assistant from scratch with a single command. Built around a real-world scenario: a business that needs an internal AI tool but cannot send sensitive client data to third-party servers.',
@@ -17,7 +28,7 @@ function Projects() {
       featured: false,
     },
     {
-      id: 2,
+      id: 3,
       title: 'Video Game Sales Analysis',
       category: 'personal',
       description: 'Analyzed 16,000+ video game sales records spanning 1980-2020 to uncover industry trends using Python data science libraries.',
@@ -28,7 +39,7 @@ function Projects() {
       featured: false,
     },
     {
-      id: 3,
+      id: 4,
       title: 'UAB Game Launcher',
       category: 'school',
       description: 'A full-stack web SPA that launches games from a library. REST API and SQLite to manage user data, leaderboards, high scores.',
@@ -37,7 +48,7 @@ function Projects() {
       github: 'https://github.com/cblalock/CS499GameLauncher',
     },
     {
-      id: 4,
+      id: 5,
       title: 'Gearshift',
       category: 'school',
       description: 'Inspired by Portal 2, a fun and challenging first person puzzle game where you try to escape the factory by completing levels.',
@@ -46,7 +57,7 @@ function Projects() {
       github: 'https://github.com/cblalock/Gearshift',
     },
     {
-      id: 5,
+      id: 6,
       title: 'Autonomous Security Drone',
       category: 'school',
       description: 'A drone project to simulate real events where a drone or camera can be used for security/check in purposes. Real time video feed, facial recognition, identity verification, interrupt driven behavior.',
