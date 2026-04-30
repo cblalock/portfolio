@@ -46,7 +46,7 @@ function Contact() {
                 <div className="method-icon">📧</div>
                 <div>
                   <div className="method-label">Email</div>
-                  <a href="mailto:connor.blalock@yahoo.com" className="method-value">
+                  <a href="mailto:connor.blalock77@gmail.com" className="method-value">
                     connor.blalock@yahoo.com
                   </a>
                 </div>

@@ -17,14 +17,13 @@ function About() {
               <p>
                 My journey into tech started as a kid, I've always enjoyed learning how things work and
                 taking stuff apart. I was fascinated by the internet and how it opened up a new world.
-                My first experience with code was editing HTML/CSS (iirc) on Myspace back in the day.
+                My first experience with code was editing HTML/CSS on Myspace and getting creative with my profile.
               </p>
               <p>
                 I joined the Army in my 20s and learned different communication systems and networking
                 fundamentals, that experience taught me a lot! After I got out, I decided to pursue a 
-                degree in Computer Science. I feel like I have a wide range of technical skills from
-                all my previous experiences, I'm ready to hone in and perfect certain skillsets that a 
-                job requires.
+                degree in Computer Science. I have a wide range of technical skills from
+                all my previous experiences.
               </p>
             </div>
             
@@ -33,14 +32,14 @@ function About() {
                 <div className="fact-icon">📍</div>
                 <div>
                   <div className="fact-label">Location</div>
-                  <div className="fact-value">Hunstville/Nashville</div>
+                  <div className="fact-value">Huntsville/Nashville</div>
                 </div>
               </div>
               <div className="fact">
                 <div className="fact-icon">💼</div>
                 <div>
                   <div className="fact-label">Status</div>
-                  <div className="fact-value">Looking for work</div>
+                  <div className="fact-value">Open to opportunities</div>
                 </div>
               </div>
               <div className="fact">
@@ -64,7 +63,8 @@ function About() {
               <span className="tool-tag">Java</span>
               <span className="tool-tag">JavaScript</span>
               <span className="tool-tag">SQL</span>
-  
+              <span className="tool-tag">HTML/CSS</span>
+
               {/* Frameworks */}
               <span className="tool-tag">React</span>
               <span className="tool-tag">Node.js</span>
@@ -85,7 +85,11 @@ function About() {
               <div className="tools-tags">
                 {/* Development Tools */}
                 <span className="tool-tag">Git</span>
-                <span className="tool-tag">VS Code</span>
+                <span className="tool-tag">Github</span>
+                <span className="tool-tag">Ansible</span>
+                <span className="tool-tag">Railway</span>
+                <span className="tool-tag">Supabase</span>
+                <span className="tool-tag">Docker</span>
                 
                 {/* Systems & Networking */}
                 <span className="tool-tag">Linux</span>
