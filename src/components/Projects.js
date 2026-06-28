@@ -23,7 +23,7 @@ function Projects() {
       description: 'Ansible playbook that provisions a fully working private AI assistant from scratch with a single command. Built around a real-world scenario: a business that needs an internal AI tool but cannot send sensitive client data to third-party servers.',
       tech: ['Ansible', 'Ollama', 'Docker', 'OpenWebUI', 'llama3.2:3b', 'Ubuntu/systemd'],
       image: `${process.env.PUBLIC_URL}/images/localLLM.png`,
-      github: 'https://github.com/cblalock/private-ai-assisstant',
+      github: 'https://github.com/cblalock/private-ai-assistant',
       live: '',
       featured: false,
     },
