@@ -79,7 +79,19 @@ function About() {
               <span className="tool-tag">Client-Server Architecture</span>
             </div>
           </div>
-            
+
+            <div className="tools-section">
+              <h4>Data & Analysis</h4>
+              <div className="tools-tags">
+                <span className="tool-tag">Pandas</span>
+                <span className="tool-tag">NumPy</span>
+                <span className="tool-tag">SQLite</span>
+                <span className="tool-tag">PostgreSQL</span>
+                <span className="tool-tag">Tableau Public</span>
+                <span className="tool-tag">Jupyter</span>
+              </div>
+            </div>
+
             <div className="tools-section">
               <h4>Tools & Platforms</h4>
               <div className="tools-tags">
