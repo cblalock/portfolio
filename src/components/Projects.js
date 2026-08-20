@@ -66,6 +66,7 @@ function Projects() {
       tech: ['Unreal Engine 5', 'Gitlab'],
       image: `${process.env.PUBLIC_URL}/images/gearshiftpic.png`,
       github: 'https://github.com/cblalock/Gearshift',
+      trailer: 'https://www.youtube.com/watch?v=kRr7yWkFJJY'
     },
     {
       id: 7,
@@ -130,6 +131,16 @@ function Projects() {
                           <line x1="10" y1="14" x2="21" y2="3"></line>
                         </svg>
                         Live Demo
+                      </a>
+                    )}
+                    {project.trailer && (
+                      <a href={project.trailer} target="_blank" rel="noopener noreferrer" className="project-link">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                          <polyline points="15 3 21 3 21 9"></polyline>
+                          <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                        Video Trailer
                       </a>
                     )}
                   </div>
