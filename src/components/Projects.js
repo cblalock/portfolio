@@ -12,7 +12,7 @@ function Projects() {
       description: 'A Claude driven autonomous options-trading agent. Logs every decision: entries exits, reasoning, and technical signal data to a SQLite database, generating a real and self-produced dataset. Built a SQL/Pandas analysis pipeline and two independent dashboards (Tableau + live web version) to track performance and diagnose loss patterns.',
       tech: ['Python', 'SQLite', 'Pandas', 'Tableau', 'JS', 'Claude API'],
       image: `${process.env.PUBLIC_URL}/images/agent_dashboardpic.png`,
-      github: 'https://github.com/cblalock/trading-agent-dashbaord',
+      github: 'https://github.com/cblalock/trading-agent-dashboard',
       live: 'https://cblalock.github.io/trading-agent-dashboard',
       featured: false,
     },
@@ -78,7 +78,7 @@ function Projects() {
     },
   ];
 
-  const filters = ['all'];
+  const filters = ['all', 'personal', 'school'];
 
   const filteredProjects = activeFilter === 'all' 
     ? projects 
