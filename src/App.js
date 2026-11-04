@@ -1,54 +1,81 @@
-import React, { useState, useEffect } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import './App.css';
-import Hero from './components/Hero';
-import About from './components/About';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
+import { byId } from './data/projects';
+import { music } from './audio';
+import { useChat } from './hooks/useChat';
+import { CursorGlow, MatrixRain } from './components/Background';
+import { Footer, TopBar } from './components/Layout';
+import LeftColumn from './components/LeftColumn';
+import RightColumn from './components/RightColumn';
+import ProjectWindow from './components/ProjectWindow';
+import ChatWindow from './components/ChatWindow';
 
-function App() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isLoaded, setIsLoaded] = useState(false);
+const scrollOptions = () => ({
+  behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+  block: 'center',
+});
 
-  useEffect(() => {
-    setIsLoaded(true);
-    
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  return (
-    <div className={`app ${isLoaded ? 'loaded' : ''}`}>
-      {/* Custom cursor follower */}
-      <div 
-        className="cursor-glow" 
-        style={{
-          left: `${mousePosition.x}px`,
-          top: `${mousePosition.y}px`,
-        }}
-      />
-      
-      <Hero />
-      <About />
-      <Projects />
-      <Contact />
-      
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-content">
-          <p>2026 Robin Connor Blalock. Crafted with curiosity & code.</p>
-          <div className="footer-links">
-            <a href="https://github.com/cblalock" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://linkedin.com/in/robin-blalock" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            
-          </div>
-        </div>
-      </footer>
-    </div>
-  );
+function flash(selector) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+  el.scrollIntoView(scrollOptions());
+  el.classList.remove('flash');
+  void el.offsetWidth; // restart the animation
+  el.classList.add('flash');
 }
 
-export default App;
+export default function App() {
+  const [projectId, setProjectId] = useState(null);
+  const [highlight, setHighlight] = useState(null);
+  const highlightTimer = useRef(null);
+  const highlightNonce = useRef(0);
+
+  useEffect(() => () => clearTimeout(highlightTimer.current), []);
+
+  const closeProject = useCallback(() => setProjectId(null), []);
+
+  // Replies from the agent can drive the page through these actions.
+  const runAction = useCallback((action) => {
+    switch (action.type) {
+      case 'project':
+        setProjectId(action.id);
+        break;
+      case 'flash':
+        flash(action.target);
+        break;
+      case 'highlight':
+        document.querySelector('#top8')?.scrollIntoView(scrollOptions());
+        setHighlight({ ids: action.ids, nonce: ++highlightNonce.current });
+        clearTimeout(highlightTimer.current);
+        highlightTimer.current = setTimeout(() => setHighlight(null), 4500);
+        break;
+      case 'music':
+        if (action.play) music.start();
+        else music.stop();
+        break;
+      default:
+    }
+  }, []);
+
+  const chat = useChat(runAction);
+  const openChat = () => chat.show();
+  const search = (query) => {
+    chat.show();
+    chat.send(query);
+  };
+
+  return (
+    <>
+      <MatrixRain />
+      <CursorGlow />
+      <TopBar onOpenChat={openChat} onSearch={search} />
+      <main className="profile" id="top">
+        <LeftColumn onOpenChat={openChat} />
+        <RightColumn highlight={highlight} onOpen={setProjectId} onOpenChat={openChat} />
+      </main>
+      <Footer />
+      <ProjectWindow project={projectId ? byId[projectId] : null} onClose={closeProject} />
+      <ChatWindow chat={chat} />
+    </>
+  );
+}
