@@ -45,7 +45,7 @@ function ProfileCard() {
           <p className="lastlogin">Last Login: {lastLogin}</p>
         </div>
       </div>
-      <p className="mood">Mood: <b>pondering</b> <span className="gear" aria-hidden="true">⚙</span></p>
+      <p className="mood">Mood: <b>#noticing</b> <span className="gear" aria-hidden="true">⚙</span></p>
       <p className="viewmy">View My:{' '}
         <External href={LINKS.github}>Code</External> |{' '}
         <External href={LINKS.resume}>Resume</External> |{' '}
