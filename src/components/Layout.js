@@ -13,7 +13,7 @@ export function TopBar({ onOpenChat, onSearch }) {
   return (
     <header className="topbar">
       <div className="topbar-inner">
-        <a className="logo" href="#top">cblalock<span className="blink">_</span></a>
+        <a className="logo" href="#top">cb<span className="blink">_</span></a>
         <span className="tagline">a place for builds</span>
         <form className="search" role="search" onSubmit={submit}>
           <label className="sr-only" htmlFor="topSearchInput">Ask the agent</label>
