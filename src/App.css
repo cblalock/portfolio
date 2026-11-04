@@ -139,7 +139,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
   width: 34%; text-align: left; vertical-align: top; padding: 4px 6px;
   background: #0d2d1c; color: var(--green); font-weight: bold;
 }
-.itable td { padding: 4px 6px; background: #071009; }
+.itable td { padding: 4px 6px; background: #071009; white-space: pre-line; }
 
 /* ---------- right column ---------- */
 .network { border: 2px solid var(--green-2); padding: 14px; font-size: 16px; text-align: center; color: #fff; }
