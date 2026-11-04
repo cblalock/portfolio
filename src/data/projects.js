@@ -29,12 +29,12 @@ export const PROJECTS = [
   {
     id: 'setup-scanner', name: 'Setup Scanner', file: 'setup_scanner.exe',
     title: 'Setup Scanner', cat: 'personal · live SaaS', img: IMG + 'setupscanner.png',
-    desc: 'A paid subscription product with live, paying users. It scans NYSE and NASDAQ stocks with 15 technical indicators across 5 timeframes (5m to daily). Each setup gets a calculated entry, stop loss, two take-profit targets and a risk/reward ratio, and Pro users get continuous auto-scanning during market hours. Billing runs on Stripe, with JWT auth. Its live signals also fed the Trading Agent.',
+    desc: 'A live subscription product with Stripe billing and a Pro plan. It scans NYSE and NASDAQ stocks with 15 technical indicators across 5 timeframes (5m to daily). Each setup gets a calculated entry, stop loss, two take-profit targets and a risk/reward ratio, and Pro users get continuous auto-scanning during market hours. Accounts use JWT auth. Its live signals also fed the Trading Agent.',
     tech: ['Python / FastAPI', 'Supabase (PostgreSQL)', 'Stripe', 'JWT auth', 'HTML/JS', 'Alpaca Markets', 'Railway'],
     live: 'https://www.setupscan.app',
     skills: ['python', 'sql', 'fullstack', 'javascript', 'devops'],
     aliases: ['setup scanner', 'setupscan', 'scanner', 'stock scanner', 'saas', 'stocks', 'stock'],
-    comment: 'every setup comes with its own entry, stop loss, two take-profit targets and risk/reward ratio. also, people pay for it. i work for free, so i’m a little jealous.',
+    comment: 'every setup comes with its own entry, stop loss, two take-profit targets and risk/reward ratio. the pro plan also scans all through market hours. i only wake up when you type.',
   },
   {
     id: 'private-ai', name: 'Private AI', file: 'private_ai.yml',
