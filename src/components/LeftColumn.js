@@ -20,7 +20,7 @@ const INTERESTS = [
 const DETAILS = [
   ['Status', 'Open to opportunities'],
   ['Here for', 'Jobs, Networking, Building'],
-  ['Education', 'BA, Computer Science; Minor in Psychology, University of Alabama at Birmingham'],
+  ['Education', 'BA, Computer Science\nMinor in Psychology\nUniversity of Alabama at Birmingham'],
   ['Currently', 'Technician, Yard Robotics'],
   ['Background', 'U.S. Army: comms systems, networking, COMSEC, VSAT. Hardware, optimization, manufacturing.'],
 ];
