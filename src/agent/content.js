@@ -46,15 +46,15 @@ export const INTENTS = [
   { id: 'army', p: ['army', 'military', 'veteran', 'before cs', 'served', 'comsec', 'vsat'],
     r: 'before CS he served in the U.S. Army working on communication systems and networking (COMSEC, VSAT terminals), 2014 to 2018. that’s where the infrastructure side comes from.' },
   { id: 'where', p: ['where', 'location', 'located', 'based', 'live', 'city', 'where based', 'where located', 'where live', 'where from', 'what city'], r: 'Huntsville / Nashville.' },
-  { id: 'music_stop', p: ['stop', 'stop music', 'pause', 'turn it off', 'quiet', 'mute'], r: 'stopped. ❚❚', a: { type: 'music', play: false } },
+  { id: 'music_stop', p: ['stop', 'stop music', 'pause', 'turn it off', 'quiet', 'mute'], r: 'the pause button is on the player. i lit it up for you.', a: { type: 'flash', target: '.player' } },
   { id: 'music', p: ['music', 'song', 'play music', 'play a song', 'play something', 'tunes'],
-    r: '▶ now playing <b>construct_loop.mid</b>. say "stop" to stop.', a: { type: 'music', play: true } },
+    r: 'his song is <b>Close My Eyes</b> by Marshmello and ILLENIUM, featuring SACHA. hit play on the player. i lit it up for you.', a: { type: 'flash', target: '.player' } },
   { id: 'thanks', p: ['thanks', 'thank you', 'thx', 'ty', 'cool', 'nice', 'awesome', 'neat', 'sick', 'dope'], r: 'anytime. ✌' },
   { id: 'matrix', p: ['matrix', 'red pill', 'blue pill', 'neo', 'morpheus', 'spoon', 'white rabbit'],
     r: 'there is no spoon. there is, however, a git log.' },
   { id: 'bye', p: ['bye', 'goodbye', 'later', 'see ya', 'cya'], r: 'later! i’ll be down here if you need me.' },
   { id: 'site', p: ['this site', 'this website', 'how was this made', 'how is this built', 'built this site'],
-    r: 'this page is hand-built in React: a 2008 profile layout, matrix rain on a canvas, and me, a client-side agent. the music is synthesized live with Web Audio, no files.' },
+    r: 'this page is hand-built in React: a 2008 profile layout, matrix rain on a canvas, and me, a client-side agent. the song is a SoundCloud embed that only plays if you click it.' },
   { id: 'languages', p: ['his skills', 'what skills', 'what languages', 'programming languages', 'tech stack', 'his stack'],
     r: 'Python is the big one (4 of the top 8). he also lists JavaScript, Java, C, C++, SQL and HTML/CSS. the full list is in his interests box.', a: { type: 'flash', target: '#interests' } },
   { id: 'live', p: ['live demo', 'try it', 'demo'],
@@ -84,7 +84,7 @@ export const INTENTS = [
   { id: 'opinion', p: ['good programmer', 'good developer', 'good engineer', 'good coder', 'weakness', 'weaknesses', 'work well', 'team player', 'teamwork', 'on a team'],
     r: 'i’m his bot, so i’m biased. judge for yourself from the builds (including the trading retrospective, where he published what went wrong), or ask him directly.' },
   { id: 'help', p: ['what do you do', 'what can you do', 'help me', 'what can i ask'],
-    r: 'i can open any project, show which ones use a skill, point you to his contact info, or play his song. try one of these:', chips: true },
+    r: 'i can open any project, show which ones use a skill, point you to his contact info, or find his song. try one of these:', chips: true },
 ];
 
 // Extra phrasings for the embedding model only. They describe what a visitor means; the answers stay the ones above.
