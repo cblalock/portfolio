@@ -11,7 +11,7 @@ const External = ({ href, children }) => <a href={href} target="_blank" rel="noo
 const INTERESTS = [
   ['General', 'taking things apart to see how they work, agents that run on their own, markets, games'],
   ['Languages', 'Python, JavaScript, Java, C, C++, SQL, HTML/CSS'],
-  ['Building With', 'React, Node.js, Express, FastAPI, Playwright, OpenCV, Unreal Engine 5'],
+  ['Building With', 'React, Node.js, Express, FastAPI, OpenCV, Unreal Engine 5'],
   ['Data', 'Pandas, NumPy, SQLite, PostgreSQL, Supabase, Tableau, Jupyter'],
   ['AI', 'Claude API, Ollama, local LLMs, agents with tool use'],
   ['Infra', 'Docker, Ansible, Railway, Linux, Git, networking'],
@@ -22,7 +22,7 @@ const DETAILS = [
   ['Here for', 'Jobs, Networking, Building'],
   ['Education', 'Bachelor\'s, Computer Science, UAB'],
   ['Currently', 'Technician, Yard Robotics'],
-  ['Background', 'U.S. Army: comms systems, networking, COMSEC, VSAT. Robotics, manufacturing, optimization.'],
+  ['Background', 'U.S. Army: comms systems, networking, COMSEC, VSAT. Hardware, optimization, manufacturing.'],
 ];
 
 const InfoTable = ({ rows }) => (
