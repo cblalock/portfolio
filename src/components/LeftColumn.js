@@ -18,7 +18,7 @@ const DETAILS = [
   ['Here for', 'Jobs, Networking, Building'],
   ['Education', 'Bachelor\'s, Computer Science, UAB'],
   ['Currently', 'Technician, Yard Robotics'],
-  ['Background', 'U.S. Army, 2014–2018: comms systems, networking, COMSEC, VSAT'],
+  ['Background', 'U.S. Army: comms systems, networking, COMSEC, VSAT. Robotics, manufacturing, optimization.'],
 ];
 
 const InfoTable = ({ rows }) => (
