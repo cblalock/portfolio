@@ -1,6 +1,7 @@
-import { useState, useSyncExternalStore } from 'react';
+import { useState } from 'react';
 import { asset, LINKS } from '../data/site';
-import { music } from '../audio';
+
+const SONG_URL = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/marshmellomusic/close-my-eyes&color=%2300ff88&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false';
 
 const External = ({ href, children }) => <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>;
 
@@ -85,23 +86,16 @@ function ContactCard({ onOpenChat }) {
 }
 
 function MusicPlayer() {
-  const playing = useSyncExternalStore(music.subscribe, music.isPlaying);
   return (
-    <section className={`card player${playing ? ' playing' : ''}`} aria-label="Music player">
+    <section className="card player" aria-label="Music player">
       <h2 className="bar">Connor's Song</h2>
-      <div className="player-row">
-        <button type="button" className="play-btn" aria-pressed={playing} aria-label={playing ? 'Pause music' : 'Play music'} onClick={music.toggle}>
-          {playing ? '❚❚' : '▶'}
-        </button>
-        <div className="player-info">
-          <div className="track">construct_loop.mid</div>
-          <div className="artist">connor · 96 bpm · synthesized live</div>
-        </div>
-        <div className="eq" aria-hidden="true"><i /><i /><i /><i /><i /></div>
-      </div>
-      <label className="vol">vol{' '}
-        <input type="range" min="0" max="100" defaultValue="45" onChange={(e) => music.setVolume(e.target.value / 100)} />
-      </label>
+      <iframe
+        className="song-embed"
+        src={SONG_URL}
+        title="Connor's Song: Close My Eyes by Marshmello and ILLENIUM, featuring SACHA"
+        loading="lazy"
+        allow="autoplay"
+      />
     </section>
   );
 }
