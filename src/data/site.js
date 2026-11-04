@@ -5,5 +5,5 @@ export const LINKS = {
   linkedin: 'https://linkedin.com/in/robin-blalock',
   github: 'https://github.com/cblalock',
   site: 'https://cblalock.github.io/portfolio',
-  resume: asset('rcb_resume.pdf'),
+  resume: asset('rcb_resume_portfolio.pdf'),
 };
