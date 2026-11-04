@@ -130,24 +130,6 @@ button { font: inherit; color: inherit; cursor: pointer; }
 
 /* ---------- player ---------- */
 .song-embed { display: block; width: 100%; height: 166px; border: 0; background: #000; }
-.player-row { display: flex; align-items: center; gap: 10px; }
-.play-btn {
-  width: 38px; height: 38px; flex: none; border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #3dffa3, #0a6b3b); color: #001a0c;
-  border: 1px solid var(--green); font-size: 15px;
-}
-.play-btn[aria-pressed="true"] { background: radial-gradient(circle at 35% 30%, #fff 0, var(--green) 40%, #0a6b3b); }
-.player-info { min-width: 0; flex: 1; }
-.track { font: 600 12px var(--mono); color: #fff; }
-.artist { font-size: 11px; color: var(--muted); }
-.eq { display: flex; align-items: flex-end; gap: 2px; height: 22px; }
-.eq i { width: 4px; height: 3px; background: var(--green); }
-.player.playing .eq i { animation: eq .7s ease-in-out infinite alternate; }
-.player.playing .eq i:nth-child(2) { animation-delay: -.2s; }
-.player.playing .eq i:nth-child(3) { animation-delay: -.45s; }
-.player.playing .eq i:nth-child(4) { animation-delay: -.1s; }
-.player.playing .eq i:nth-child(5) { animation-delay: -.6s; }
-@keyframes eq { from { height: 3px; } to { height: 22px; } }
 .vol { display: flex; align-items: center; gap: 8px; margin-top: 8px; font: 11px var(--mono); color: var(--muted); }
 .vol input { flex: 1; accent-color: var(--green); }
 

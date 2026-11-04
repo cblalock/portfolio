@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import './App.css';
 import { byId } from './data/projects';
-import { music } from './audio';
 import { useChat } from './hooks/useChat';
 import { CursorGlow, MatrixRain } from './components/Background';
 import { Footer, TopBar } from './components/Layout';
@@ -48,10 +47,6 @@ export default function App() {
         setHighlight({ ids: action.ids, nonce: ++highlightNonce.current });
         clearTimeout(highlightTimer.current);
         highlightTimer.current = setTimeout(() => setHighlight(null), 4500);
-        break;
-      case 'music':
-        if (action.play) music.start();
-        else music.stop();
         break;
       default:
     }

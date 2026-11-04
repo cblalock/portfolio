@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { asset, LINKS } from '../data/site';
 
 const SONG_URL = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/marshmellomusic/close-my-eyes&color=%2300ff88&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false';
+
+const START_VOLUME = 45;
+let widgetApi = null;
 
 const External = ({ href, children }) => <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>;
 
@@ -85,17 +88,62 @@ function ContactCard({ onOpenChat }) {
   );
 }
 
+function loadWidgetApi() {
+  if (!widgetApi) {
+    widgetApi = new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = 'https://w.soundcloud.com/player/api.js';
+      script.onload = () => resolve(window.SC);
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  }
+  return widgetApi;
+}
+
 function MusicPlayer() {
+  const frame = useRef(null);
+  const widget = useRef(null);
+  const volume = useRef(START_VOLUME);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    loadWidgetApi().then((SC) => {
+      if (cancelled) return;
+      const w = SC.Widget(frame.current);
+      w.bind(SC.Widget.Events.READY, () => {
+        if (cancelled) return;
+        widget.current = w;
+        w.setVolume(volume.current);
+        setReady(true);
+      });
+      // SoundCloud can adjust the volume when playback starts, so keep it matching the slider.
+      w.bind(SC.Widget.Events.PLAY, () => { if (!cancelled) w.setVolume(volume.current); });
+    }).catch(() => {}); // the player's own controls still work without the slider
+    return () => { cancelled = true; };
+  }, []);
+
+  function changeVolume(e) {
+    volume.current = Number(e.target.value);
+    widget.current?.setVolume(volume.current);
+  }
+
   return (
     <section className="card player" aria-label="Music player">
       <h2 className="bar">Connor's Song</h2>
       <iframe
+        ref={frame}
         className="song-embed"
         src={SONG_URL}
         title="Connor's Song: Close My Eyes by Marshmello and ILLENIUM, featuring SACHA"
-        loading="lazy"
         allow="autoplay"
       />
+      {ready && (
+        <label className="vol">vol{' '}
+          <input type="range" min="0" max="100" defaultValue={START_VOLUME} onChange={changeVolume} />
+        </label>
+      )}
     </section>
   );
 }
