@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Connor Blalock · builds</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="rain" aria-hidden="true"></canvas>
+  <div id="glow" aria-hidden="true"></div>
+  <div class="mockup-tag" title="Standalone mockup. Not part of the deployed React app.">MOCKUP v0.1 · local only</div>
+
+  <!-- ===== top bar ===== -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="logo" href="#top">cblalock<span class="blink">_</span></a>
+      <span class="tagline">a place for builds</span>
+      <form class="search" id="topSearch" role="search">
+        <label class="sr-only" for="topSearchInput">Ask the agent</label>
+        <input id="topSearchInput" type="text" placeholder="ask the agent anything..." autocomplete="off">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <nav class="navbar" aria-label="Sections">
+      <a href="#top">Home</a><span>|</span>
+      <a href="#top8">Top 8</a><span>|</span>
+      <a href="#interests">Interests</a><span>|</span>
+      <a href="#comments">Comments</a><span>|</span>
+      <a href="#contact">Contact</a><span>|</span>
+      <button type="button" class="linklike" data-open-im>IM the agent</button>
+    </nav>
+  </header>
+
+  <main class="profile" id="top">
+    <!-- ===== left column ===== -->
+    <aside class="col-left">
+      <section class="card profile-card">
+        <h1 class="profile-name">Connor</h1>
+        <div class="profile-top">
+          <div class="avatar">
+            <img src="../public/images/avatar.jpg" alt="Connor Blalock" width="260" height="300">
+          </div>
+          <div class="profile-meta">
+            <p class="quote">"i like building and automating things"</p>
+            <p>Huntsville / Nashville<br>Open to opportunities</p>
+            <p class="online"><span class="online-dot"></span>Online Now!</p>
+            <p class="lastlogin">Last Login: <span id="lastLogin"></span></p>
+          </div>
+        </div>
+        <p class="mood">Mood: <b>pondering</b> <span class="gear" aria-hidden="true">⚙</span></p>
+        <p class="viewmy">View My:
+          <a href="https://github.com/cblalock" target="_blank" rel="noopener">Code</a> |
+          <a href="../public/rcb_resume.pdf" target="_blank" rel="noopener">Resume</a> |
+          <a href="https://linkedin.com/in/robin-blalock" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+      </section>
+
+      <section class="card contact-card" id="contact">
+        <h2 class="bar">Contacting Connor</h2>
+        <div class="contact-grid">
+          <a href="mailto:connor.blalock77@gmail.com"><span aria-hidden="true">✉</span> Send Message</a>
+          <a href="https://linkedin.com/in/robin-blalock" target="_blank" rel="noopener"><span aria-hidden="true">＋</span> Add to Network</a>
+          <button type="button" data-open-im><span aria-hidden="true">💬</span> Instant Message</button>
+          <a href="https://github.com/cblalock" target="_blank" rel="noopener"><span aria-hidden="true">⌥</span> View Code</a>
+          <a href="../public/rcb_resume.pdf" target="_blank" rel="noopener"><span aria-hidden="true">▤</span> Get Resume</a>
+          <button type="button" id="copyLink"><span aria-hidden="true">↗</span> Forward to Friend</button>
+        </div>
+      </section>
+
+      <section class="card url-card">
+        <b>Connor's URL:</b><br>
+        <span class="url">https://cblalock.github.io/portfolio</span>
+      </section>
+
+      <section class="card player" aria-label="Music player">
+        <h2 class="bar">Connor's Song</h2>
+        <div class="player-row">
+          <button type="button" class="play-btn" id="playBtn" aria-pressed="false" aria-label="Play music">▶</button>
+          <div class="player-info">
+            <div class="track">construct_loop.mid</div>
+            <div class="artist">connor · 96 bpm · synthesized live</div>
+          </div>
+          <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <label class="vol">vol <input type="range" id="vol" min="0" max="100" value="45"></label>
+      </section>
+
+      <section class="card" id="interests">
+        <h2 class="bar">Connor's Interests</h2>
+        <table class="itable">
+          <tr><th>General</th><td>taking things apart to see how they work, agents that run on their own, markets, games</td></tr>
+          <tr><th>Languages</th><td>Python, JavaScript, Java, C, C++, SQL, HTML/CSS</td></tr>
+          <tr><th>Building With</th><td>React, Node.js, Express, FastAPI, Playwright, OpenCV, Unreal Engine 5</td></tr>
+          <tr><th>Data</th><td>Pandas, NumPy, SQLite, PostgreSQL, Supabase, Tableau, Jupyter</td></tr>
+          <tr><th>AI</th><td>Claude API, Ollama, local LLMs, agents with tool use</td></tr>
+          <tr><th>Infra</th><td>Docker, Ansible, Railway, Linux, Git, networking</td></tr>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2 class="bar">Connor's Details</h2>
+        <table class="itable">
+          <tr><th>Status</th><td>Open to opportunities</td></tr>
+          <tr><th>Here for</th><td>Jobs, Networking, Building</td></tr>
+          <tr><th>Education</th><td>Bachelor's, Computer Science, UAB</td></tr>
+          <tr><th>Currently</th><td>Technician, Yard Robotics</td></tr>
+          <tr><th>Background</th><td>U.S. Army, 2014–2018: comms systems, networking, COMSEC, VSAT</td></tr>
+        </table>
+      </section>
+    </aside>
+
+    <!-- ===== right column ===== -->
+    <div class="col-right">
+      <section class="card network">
+        <p><b>Connor is in your extended network.</b></p>
+      </section>
+
+      <section class="card">
+        <h2 class="bar">Connor's Latest Activity</h2>
+        <ul class="activity">
+          <li><span class="when">new</span> added <a href="#" data-project="the-hunter">The Hunter</a> to Top 8</li>
+          <li><span class="when">recent</span> uploaded a trailer for <a href="#" data-project="gearshift">Gearshift</a></li>
+          <li><span class="when">recent</span> shipped the <a href="#" data-project="trading-agent">Trading Agent</a> performance dashboard</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2 class="bar">Connor's Blurbs</h2>
+        <div class="blurbs">
+          <h3>About me:</h3>
+          <p>i just like building stuff. mostly agents, data pipelines, and things that run on their own while i sleep. the builds below say it better than i could.</p>
+          <h3>Who I'd like to meet:</h3>
+          <p>teams building with AI agents, data, or infrastructure. if you're hiring, <button type="button" class="linklike" data-open-im>IM my agent</button> or just <a href="mailto:connor.blalock77@gmail.com">email me</a>.</p>
+        </div>
+      </section>
+
+      <section class="card" id="top8">
+        <h2 class="bar">Connor's Top 8 <small>Connor has 8 builds</small></h2>
+        <div class="top8" id="top8grid"></div>
+      </section>
+
+      <section class="card" id="comments">
+        <h2 class="bar">Connor's Friends Comments</h2>
+        <p class="comments-head">Displaying <span id="commentCount">4</span> of <span id="commentTotal">4</span> comments ( <a href="#guestbook">Add Comment</a> )</p>
+        <div id="commentList" class="comment-list"></div>
+        <div id="guestbook" class="guestbook">
+          <b>Add Comment</b> <small>sign in with GitHub to leave a real one</small>
+          <script src="https://giscus.app/client.js"
+            data-repo="cblalock/portfolio"
+            data-repo-id="R_kgDORO8MOA"
+            data-category="Announcements"
+            data-category-id="DIC_kwDORO8MOM4DKVLd"
+            data-mapping="specific"
+            data-term="guestbook"
+            data-strict="1"
+            data-reactions-enabled="0"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="transparent_dark"
+            data-lang="en"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async></script>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <a href="#top">Home</a> | <a href="#top8">Top 8</a> | <a href="https://github.com/cblalock" target="_blank" rel="noopener">GitHub</a> |
+    <a href="https://linkedin.com/in/robin-blalock" target="_blank" rel="noopener">LinkedIn</a> | <a href="mailto:connor.blalock77@gmail.com">Email</a>
+    <p>© 2026 Robin Connor Blalock · hand-built, no templates</p>
+  </footer>
+
+  <!-- ===== project window ===== -->
+  <div class="win-backdrop" id="projBackdrop" hidden>
+    <div class="win" role="dialog" aria-modal="true" aria-labelledby="pwTitle">
+      <div class="win-title">
+        <span class="win-name" id="pwFile">project.exe</span>
+        <button type="button" class="win-btn" id="pwClose" aria-label="Close">✕</button>
+      </div>
+      <div class="win-body">
+        <div class="pw-img" id="pwImg" role="img"></div>
+        <div class="pw-text">
+          <p class="pw-cat" id="pwCat"></p>
+          <h2 id="pwTitle"></h2>
+          <p id="pwDesc"></p>
+          <div class="tags" id="pwTech"></div>
+          <div class="pw-links" id="pwLinks"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== instant message window ===== -->
+  <section class="im" id="im" hidden aria-label="Chat with cb0t">
+    <div class="im-title">
+      <span class="im-name"><span class="online-dot"></span>cb0t · Instant Message</span>
+      <span>
+        <button type="button" class="win-btn" id="imMin" aria-label="Minimize chat">_</button>
+      </span>
+    </div>
+    <div class="im-toolbar">
+      <span class="im-mode" id="imMode">mode: keyword brain</span>
+    </div>
+    <div class="im-log" id="imLog" aria-live="polite"></div>
+    <div class="im-typing" id="imTyping" aria-hidden="true">&nbsp;</div>
+    <div class="im-chips" id="imChips"></div>
+    <form class="im-input" id="imForm">
+      <label class="sr-only" for="imInput">Message</label>
+      <input id="imInput" type="text" autocomplete="off" placeholder="type a message..." maxlength="300">
+      <button type="submit">Send</button>
+    </form>
+
+  </section>
+  <button type="button" class="im-tab" id="imTab"><span class="online-dot"></span>cb0t <span class="badge" id="imBadge" hidden>1</span></button>
+
+  <script src="app.js"></script>
+</body>
+</html>
