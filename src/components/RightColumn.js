@@ -5,6 +5,16 @@ import { PROJECTS } from '../data/projects';
 const imgVar = (img) => ({ '--img': `url("${img}")` });
 const NOTES = PROJECTS.filter((p) => p.comment);
 
+// cb0t's wall avatar: a small green robot face.
+const CB0T_AVATAR = 'data:image/svg+xml,' + encodeURIComponent(
+  "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'>" +
+  "<rect width='60' height='60' fill='#020a05'/>" +
+  "<g stroke='#00ff88' stroke-width='2.5' fill='none'>" +
+  "<rect x='12' y='18' width='36' height='30' rx='3'/><path d='M30 18V9M6 29v9M54 29v9M22 40h16'/></g>" +
+  "<circle cx='30' cy='8' r='3' fill='#00ff88'/>" +
+  "<circle cx='23' cy='30' r='3.5' fill='#00ff88'/><circle cx='37' cy='30' r='3.5' fill='#00ff88'/></svg>"
+);
+
 function ProjectLink({ id, onOpen, children }) {
   return <button type="button" className="linklike" onClick={() => onOpen(id)}>{children}</button>;
 }
@@ -68,7 +78,7 @@ function Guestbook() {
   );
 }
 
-function Comments({ onOpen }) {
+function Comments({ onOpen, onOpenChat }) {
   return (
     <section className="card" id="comments">
       <h2 className="bar">Connor's Friends Comments</h2>
@@ -77,10 +87,10 @@ function Comments({ onOpen }) {
         {NOTES.map((p) => (
           <div className="comment" key={p.id}>
             <div className="comment-who">
-              <button type="button" onClick={() => onOpen(p.id)}>{p.id.replace(/-/g, '_')}</button>
-              <span className="comment-av" style={imgVar(p.img)} />
+              <button type="button" onClick={onOpenChat}>cb0t</button>
+              <span className="comment-av" style={imgVar(CB0T_AVATAR)} />
             </div>
-            <div className="comment-body"><div className="comment-time">build note</div>{p.comment}</div>
+            <div className="comment-body"><div className="comment-time">favorite thing about <ProjectLink id={p.id} onOpen={onOpen}>{p.name}</ProjectLink></div>{p.comment}</div>
           </div>
         ))}
       </div>
@@ -116,7 +126,7 @@ export default function RightColumn({ highlight, onOpen, onOpenChat }) {
       </section>
 
       <Top8 highlight={highlight} onOpen={onOpen} />
-      <Comments onOpen={onOpen} />
+      <Comments onOpen={onOpen} onOpenChat={onOpenChat} />
     </div>
   );
 }

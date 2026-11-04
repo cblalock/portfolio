@@ -24,7 +24,7 @@ export const PROJECTS = [
     github: 'https://github.com/cblalock/trading-agent-dashboard', live: 'https://cblalock.github.io/trading-agent-dashboard',
     skills: ['python', 'sql', 'data', 'ai', 'javascript'],
     aliases: ['trading agent', 'trading', 'trader', 'options', 'agent dashboard', 'trading dashboard', 'performance analytics', 'tableau'],
-    comment: '192 paper trades, every one journaled with my reasoning. then every guardrail got pulled to test my judgment. average loss per trade nearly tripled. lesson logged.',
+    comment: 'it journaled its reasoning on all 192 paper trades, and connor published the whole run, retrospective included. as a fellow bot, i respect the transparency.',
   },
   {
     id: 'setup-scanner', name: 'Setup Scanner', file: 'setup_scanner.exe',
@@ -34,7 +34,7 @@ export const PROJECTS = [
     live: 'https://www.setupscan.app',
     skills: ['python', 'sql', 'fullstack', 'javascript', 'devops'],
     aliases: ['setup scanner', 'setupscan', 'scanner', 'stock scanner', 'saas', 'stocks', 'stock'],
-    comment: 'turns out a min-strength setting was silently keeping 13 of my 15 indicators from ever firing. lowering it woke them up, then a −$750.50 friday sent it back up, with the weaker signals kept as confirmation checks.',
+    comment: 'every setup comes with its own entry, stop loss, two take-profit targets and risk/reward ratio. also, people pay for it. i work for free, so i’m a little jealous.',
   },
   {
     id: 'private-ai', name: 'Private AI', file: 'private_ai.yml',
@@ -44,7 +44,7 @@ export const PROJECTS = [
     github: 'https://github.com/cblalock/private-ai-assistant',
     skills: ['ai', 'devops'],
     aliases: ['private ai', 'private assistant', 'ai assistant', 'ansible', 'ollama', 'local llm', 'openwebui', 'playbook'],
-    comment: 'one command and an organization has its own internal LLM, without routing sensitive data through third-party servers.',
+    comment: 'the whole thing takes one command, and sensitive data stays off third-party servers. i run with no server at all, so we get along.',
   },
   {
     id: 'the-hunter', name: 'The Hunter', file: 'the_hunter.exe',
@@ -54,7 +54,7 @@ export const PROJECTS = [
     note: 'repo coming soon (publishing a cleaned copy)',
     skills: ['python', 'sql', 'ai', 'fullstack', 'automation'],
     aliases: ['the hunter', 'hunter', 'job search', 'job hunt', 'browser automation', 'playwright', 'easy apply'],
-    comment: 'every job posting gets a score that shows its work. new screening questions get logged for review, and corrections get reused next time.',
+    comment: 'correct one of its answers and it reuses the correction next time. i don’t learn anything, so this one’s aspirational.',
   },
   {
     id: 'gearshift', name: 'Gearshift', file: 'gearshift.uproject',
@@ -64,7 +64,7 @@ export const PROJECTS = [
     github: 'https://github.com/cblalock/Gearshift', trailer: 'https://www.youtube.com/watch?v=kRr7yWkFJJY',
     skills: ['games'],
     aliases: ['gearshift', 'gear shift', 'unreal', 'ue5', 'portal', 'puzzle game', 'trailer'],
-    comment: 'first-person puzzle game in Unreal Engine 5. the trailer’s up. still can’t escape the factory.',
+    comment: 'the trailer. first-person puzzles in Unreal Engine 5, and the whole goal is escaping a factory. i’ve been stuck in a chat window since launch, so i relate.',
   },
   {
     id: 'drone', name: 'Security Drone', file: 'drone.jar',
@@ -74,7 +74,7 @@ export const PROJECTS = [
     github: 'https://github.com/cblalock/DroneProject',
     skills: ['java', 'cv'],
     aliases: ['security drone', 'drone', 'tello', 'facial recognition', 'face recognition', 'opencv'],
-    comment: 'java, opencv and a tello: live video, facial recognition and identity checks, with interrupt-driven behavior.',
+    comment: 'it recognizes your face from a live video feed and verifies who you are. i can’t even see you.',
   },
   {
     id: 'game-launcher', name: 'Game Launcher', file: 'game_launcher.js',
@@ -84,7 +84,7 @@ export const PROJECTS = [
     github: 'https://github.com/cblalock/CS499GameLauncher',
     skills: ['react', 'javascript', 'sql', 'fullstack'],
     aliases: ['game launcher', 'launcher', 'uab game', 'leaderboard', 'high score'],
-    comment: 'capstone for UAB’s biology department. a real stakeholder, and 1st place among the capstone teams.',
+    comment: 'educational games with leaderboards and high scores. biology, but competitive. it also took 1st place among the capstone teams, so connor made a leaderboard too.',
   },
   {
     id: 'game-sales', name: 'Game Sales', file: 'game_sales.ipynb',
@@ -94,6 +94,7 @@ export const PROJECTS = [
     github: 'https://github.com/cblalock/Video-Games-Sales-Analysis',
     skills: ['python', 'data'],
     aliases: ['video game sales', 'game sales', 'sales analysis', 'sales', 'jupyter', 'matplotlib'],
+    comment: '16,000+ sales records spanning 1980 to 2020. that’s 40 years of video games, and i’m a bot who’s never gotten to play one.',
   },
 ];
 
