@@ -2,7 +2,8 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import './App.css';
 import { byId } from './data/projects';
 import { useChat } from './hooks/useChat';
-import { CursorGlow, MatrixRain } from './components/Background';
+import { CursorGlow } from './components/Background';
+import Ouroboros from './components/Ouroboros';
 import { Footer, TopBar } from './components/Layout';
 import LeftColumn from './components/LeftColumn';
 import RightColumn from './components/RightColumn';
@@ -61,7 +62,7 @@ export default function App() {
 
   return (
     <>
-      <MatrixRain />
+      <Ouroboros />
       <CursorGlow />
       <TopBar onOpenChat={openChat} onSearch={search} />
       <main className="profile" id="top">

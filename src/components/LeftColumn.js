@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { asset, LINKS } from '../data/site';
 
-const SONG_URL = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/marshmellomusic/close-my-eyes&color=%2300ff88&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false';
+// Porter Robinson's official upload, which allows embedding (checked 2026-11-20).
+const SONG_ID = 'kss2zXoUM3Q';
+const SONG_URL = `https://www.youtube.com/embed/${SONG_ID}?enablejsapi=1&playsinline=1&rel=0&origin=${encodeURIComponent(window.location.origin)}`;
 
 const START_VOLUME = 45;
 let widgetApi = null;
@@ -91,9 +93,11 @@ function ContactCard({ onOpenChat }) {
 function loadWidgetApi() {
   if (!widgetApi) {
     widgetApi = new Promise((resolve, reject) => {
+      if (window.YT?.Player) { resolve(window.YT); return; }
+      const prev = window.onYouTubeIframeAPIReady;
+      window.onYouTubeIframeAPIReady = () => { prev?.(); resolve(window.YT); };
       const script = document.createElement('script');
-      script.src = 'https://w.soundcloud.com/player/api.js';
-      script.onload = () => resolve(window.SC);
+      script.src = 'https://www.youtube.com/iframe_api';
       script.onerror = reject;
       document.head.appendChild(script);
     });
@@ -109,17 +113,21 @@ function MusicPlayer() {
 
   useEffect(() => {
     let cancelled = false;
-    loadWidgetApi().then((SC) => {
+    loadWidgetApi().then((YT) => {
       if (cancelled) return;
-      const w = SC.Widget(frame.current);
-      w.bind(SC.Widget.Events.READY, () => {
-        if (cancelled) return;
-        widget.current = w;
-        w.setVolume(volume.current);
-        setReady(true);
+      // Attach to the iframe already on the page (it has enablejsapi=1).
+      const p = new YT.Player(frame.current, {
+        events: {
+          onReady: () => {
+            if (cancelled) return;
+            widget.current = p;
+            p.setVolume(volume.current);
+            setReady(true);
+          },
+          // Keep the volume matching the slider when playback starts.
+          onStateChange: (e) => { if (!cancelled && e.data === YT.PlayerState.PLAYING) p.setVolume(volume.current); },
+        },
       });
-      // SoundCloud can adjust the volume when playback starts, so keep it matching the slider.
-      w.bind(SC.Widget.Events.PLAY, () => { if (!cancelled) w.setVolume(volume.current); });
     }).catch(() => {}); // the player's own controls still work without the slider
     return () => { cancelled = true; };
   }, []);
@@ -136,8 +144,10 @@ function MusicPlayer() {
         ref={frame}
         className="song-embed"
         src={SONG_URL}
-        title="Connor's Song: Close My Eyes by Marshmello and ILLENIUM, featuring SACHA"
-        allow="autoplay"
+        title="Connor's Song: Is There Really No Happiness? (Frost Children Remix) by Porter Robinson"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
       />
       {ready && (
         <label className="vol">vol{' '}
