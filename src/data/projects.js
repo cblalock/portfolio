@@ -2,18 +2,6 @@ import { asset } from './site';
 
 const IMG = asset('images/');
 
-// Generated tile art for The Hunter (no screenshot yet).
-const hunterArt = 'data:image/svg+xml,' + encodeURIComponent(
-  "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'>" +
-  "<rect width='400' height='400' fill='#020a05'/>" +
-  "<g stroke='#00ff88' stroke-width='3' fill='none' opacity='.85'>" +
-  "<circle cx='200' cy='165' r='95'/><circle cx='200' cy='165' r='42'/>" +
-  "<path d='M200 50v70M200 210v70M85 165h70M245 165h70'/></g>" +
-  "<circle cx='200' cy='165' r='5' fill='#00ff88'/>" +
-  "<text x='200' y='330' fill='#00ff88' font-family='monospace' font-size='38' text-anchor='middle'>THE_HUNTER</text>" +
-  "<text x='200' y='368' fill='#00cc6f' font-family='monospace' font-size='18' text-anchor='middle' opacity='.75'>&gt; ranking jobs...</text></svg>"
-);
-
 // Top 8 order = rank
 export const PROJECTS = [
   {
@@ -48,12 +36,12 @@ export const PROJECTS = [
   },
   {
     id: 'the-hunter', name: 'The Hunter', file: 'the_hunter.exe',
-    title: 'The Hunter', cat: 'personal · new', img: hunterArt,
-    desc: 'Browser automation plus an LLM pipeline for job search. It searches job boards with Playwright, filters out bad fits, and ranks every posting with an explainable score (posting age, applicant count, remote vs. local, required years). Screening questions are answered from a saved profile first; anything new goes to Claude for structured output. Every answer is logged for review, and corrections are reused next time.',
+    title: 'The Hunter', cat: 'personal · new', img: IMG + 'thehunter.png',
+    desc: 'Browser automation plus an LLM pipeline for job search. It searches job boards (jobspy, plus logged-in LinkedIn search with Playwright), filters out scam postings, staffing-vendor spam and roles out of reach, and ranks every posting with an explainable score (posting age, applicant count, remote vs. local, required years). Claude tailors resumes without inventing anything and drafts screening answers from a saved profile with structured output; anything the facts don’t settle is left for review, and corrections are reused next time.',
     tech: ['Python', 'FastAPI', 'SQLAlchemy / SQLite', 'Playwright', 'Claude API', 'HTML/CSS/JS'],
-    note: 'repo coming soon (publishing a cleaned copy)',
+    github: 'https://github.com/cblalock/the_hunter',
     skills: ['python', 'sql', 'ai', 'fullstack', 'automation'],
-    aliases: ['the hunter', 'hunter', 'job search', 'job hunt', 'browser automation', 'playwright', 'easy apply'],
+    aliases: ['the hunter', 'hunter', 'job search', 'job hunt', 'browser automation', 'playwright'],
     comment: 'correct one of its answers and it reuses the correction next time. i don’t learn anything, so this one’s aspirational.',
   },
   {
