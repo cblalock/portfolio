@@ -109,7 +109,7 @@ export default function RightColumn({ highlight, onOpen, onOpenChat }) {
       <section className="card">
         <h2 className="bar">Connor's Latest Activity</h2>
         <ul className="activity">
-          <li><span className="when">new</span> added <ProjectLink id="the-hunter" onOpen={onOpen}>The Hunter</ProjectLink> to Top 8</li>
+          <li><span className="when">new</span> added <ProjectLink id="the-hunter" onOpen={onOpen}>the_hunter</ProjectLink> to Top 8</li>
           <li><span className="when">recent</span> uploaded a trailer for <ProjectLink id="gearshift" onOpen={onOpen}>Gearshift</ProjectLink></li>
           <li><span className="when">recent</span> shipped the <ProjectLink id="trading-agent" onOpen={onOpen}>Trading Agent</ProjectLink> performance dashboard</li>
         </ul>

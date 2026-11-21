@@ -35,13 +35,13 @@ export const PROJECTS = [
     comment: 'the whole thing takes one command, and sensitive data stays off third-party servers. i run with no server at all, so we get along.',
   },
   {
-    id: 'the-hunter', name: 'The Hunter', file: 'the_hunter.exe',
-    title: 'The Hunter', cat: 'personal · new', img: IMG + 'thehunter.png',
+    id: 'the-hunter', name: 'the_hunter', file: 'the_hunter.exe',
+    title: 'the_hunter', cat: 'personal · new', img: IMG + 'the_hunter.png',
     desc: 'Browser automation plus an LLM pipeline for job search. It searches job boards (jobspy, plus logged-in LinkedIn search with Playwright), filters out scam postings, staffing-vendor spam and roles out of reach, and ranks every posting with an explainable score (posting age, applicant count, remote vs. local, required years). Claude tailors resumes without inventing anything and drafts screening answers from a saved profile with structured output; anything the facts don’t settle is left for review, and corrections are reused next time.',
     tech: ['Python', 'FastAPI', 'SQLAlchemy / SQLite', 'Playwright', 'Claude API', 'HTML/CSS/JS'],
     github: 'https://github.com/cblalock/the_hunter',
     skills: ['python', 'sql', 'ai', 'fullstack', 'automation'],
-    aliases: ['the hunter', 'hunter', 'job search', 'job hunt', 'browser automation', 'playwright'],
+    aliases: ['the_hunter', 'the hunter', 'hunter', 'job search', 'job hunt', 'browser automation', 'playwright'],
     comment: 'correct one of its answers and it reuses the correction next time. i don’t learn anything, so this one’s aspirational.',
   },
   {
